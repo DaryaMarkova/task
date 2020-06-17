@@ -1,0 +1,25 @@
+.tree, .tree ul {
+    list-style-type: none;
+}
+.tree .tree-item {
+    cursor: pointer;
+    padding: 4px 6px;
+}
+.tree ul {
+    display: none;
+}
+.tree li {
+    margin: 0px;
+}
+.tree-item .name {
+    display: inline-block;
+    min-width: 120px;
+}
+.tree-item .email {
+    display: inline-block;
+    min-width: 200px;
+}
+.tree-item .balance {
+    display: inline-block;
+    min-width: 100px;
+}
