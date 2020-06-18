@@ -6,7 +6,7 @@ class Tree {
 
     load() {
         return new Promise((resolve, reject) => {
-            $.getJSON('data.json', items => {
+            $.getJSON('data.json').done(items => {
                 items.forEach(item => {
                     const key = item.parentId;
 
@@ -17,7 +17,7 @@ class Tree {
                     this.treeMap.set(key, this.treeMap.get(key).concat(item))
                 });
                 resolve(true);
-            })
+            }).fail(error => reject(error))
         });
     }
 
@@ -72,5 +72,8 @@ class Tree {
 
 $(document).ready(function () {
     const tree = new Tree();
-    tree.load().then(() => tree.render($('body')))
+
+    tree.load()
+        .then(() => tree.render($('body')))
+        .catch(error => console.log(error))
 });
